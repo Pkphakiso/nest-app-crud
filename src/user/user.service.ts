@@ -26,9 +26,6 @@ export class UserService{
         return this.usersRepository.update(userId, updateUserDto);
     }
 
-
-    //   
-
     //not working??
     delete(id : number){
         return  this.usersRepository.delete(id);

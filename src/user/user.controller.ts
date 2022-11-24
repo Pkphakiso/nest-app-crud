@@ -20,15 +20,15 @@ export class UserController{
         return this.userService.update(updateUserDto, userId  );
     }
     @Get('/:userId')
-    getUser( @Param('id', ParseIntPipe) id: number){  
-        return this.userService.findUser(id);
+    getUser( @Param('userId', ParseIntPipe) userId: number){  
+        return this.userService.findUser(userId);
     }  
     // @Get('/:userId')
     // getUser( @Param('userId',ParseIntPipe ) userId: number){  
     //     return this.userService.getUser( userId);
     // }    
     @Delete('/:userId')
-    userDelete(@Param('id',ParseIntPipe) id: number){
-        return  this.userService.delete(id);
+    userDelete(@Param('userId',ParseIntPipe) userId: number){
+        return  this.userService.delete(userId);
     }
 }
