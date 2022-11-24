@@ -19,14 +19,17 @@ export class UserController{
     userUpdate(@Body() updateUserDto: UpdateUserDto , @Param('userId',ParseIntPipe ) userId: number){
         return this.userService.update(updateUserDto, userId  );
     }
-    @Get('/:userId')
-    getUser( @Param('userId', ParseIntPipe) userId: number){  
-        return this.userService.findUser(userId);
+    // remeber the concistancy for param id
+    @Get('/:id')
+    getUser( @Param('id', ParseIntPipe) id: number){  
+        return this.userService.findUser(id);
     }  
     // @Get('/:userId')
     // getUser( @Param('userId',ParseIntPipe ) userId: number){  
     //     return this.userService.getUser( userId);
     // }    
+    
+    // remeber the concistancy for param userId
     @Delete('/:userId')
     userDelete(@Param('userId',ParseIntPipe) userId: number){
         return  this.userService.delete(userId);
