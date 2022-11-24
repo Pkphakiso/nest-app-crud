@@ -11,28 +11,29 @@ export class UserService{
         @InjectRepository(User)
         private usersRepository: Repository<User>,
       ) {}
-    //works
+    //find the users from the DB works
     get(): Promise<User[]>{
-        return this.usersRepository.find();
-       
+        return this.usersRepository.find();  
     }
-    //works
+    //store the user from the DB works
     store(createUserDto: CreateUserDto){
-      
         return this.usersRepository.save(createUserDto);
     } 
-    //works
+    //update the user from the DB works
     update( updateUserDto:UpdateUserDto , userId:number){
         return this.usersRepository.update(userId, updateUserDto);
     }
-
-    //not working??
+    //delete the user from the DB working
     delete(id : number){
         return  this.usersRepository.delete(id);
     }
-    //not working??
+    // find the user from the DB working 
     findUser(id : number){
         return this.usersRepository.findOne({where: {id}});
+    }
+    // find the user to validate from the DB working 
+    findAUser(username: string, password: string){
+        return this.usersRepository.findOne({where: {username}});
     }
 
 } 
